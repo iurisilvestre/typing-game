@@ -1,3 +1,12 @@
 * {
   font-family: sans-serif;
 }
+
+span {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.correct-color {
+  color: rgb(0, 255, 0);
+}
