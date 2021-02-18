@@ -27,19 +27,10 @@ function getRandomWord(listOfWords) {
 }
 
 function play() {
-  time = 10;
   $time.text(time);
   wordToType = getRandomWord(wordsList).split("");
   displayWordToType();
   indexCharacter = 0;
-  intervalID = setInterval(() => {
-    time -= 1;
-
-    if (time < 1) {
-      gameover();
-    }
-    $time.text(time);
-  }, 1000);
 }
 
 function displayWordToType() {
@@ -51,10 +42,10 @@ function displayWordToType() {
 
 function checkWord() {
   if (indexCharacter == wordsList[indexWordSelect].length) {
+    score += 1;
     wordsList.splice(indexWordSelect, 1);
     console.log(wordsList);
     play();
-    clearInterval(intervalID);
   }
 }
 
@@ -71,7 +62,7 @@ function checkCharKey(key) {
 }
 
 function gameover() {
-  console.log("gameover");
+  console.log("game over", score);
   clearInterval(intervalID);
   time = 0;
 }
@@ -79,6 +70,14 @@ function gameover() {
 function starGame() {
   $time.text(time);
   play();
+  intervalID = setInterval(() => {
+    time -= 1;
+
+    if (time < 1) {
+      gameover();
+    }
+    $time.text(time);
+  }, 1000);
 }
 
 starGame();
