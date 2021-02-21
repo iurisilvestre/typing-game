@@ -2,7 +2,7 @@
 let wordToType = "";
 let indexCharacter = 0;
 let indexWordSelect = 0;
-let time = 10;
+let time = 30;
 let intervalID;
 let score = 0;
 
@@ -51,7 +51,7 @@ function checkWord() {
 
 function checkCharKey(key) {
   const spanList = document.querySelectorAll(".span-paint");
-  if (key === wordToType[indexCharacter]) {
+  if (key == wordToType[indexCharacter]) {
     spanList[indexCharacter].classList.add("correct-color");
     indexCharacter += 1;
     checkWord();
