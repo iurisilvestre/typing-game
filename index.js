@@ -15,12 +15,13 @@ const wordsList = [
   "imagination",
   "love",
   "god",
-  "medicine",
+  "medicine"
 ];
 
 // DOM Elements
 const wordToTypeDiv = document.querySelector("#wordToTypeDiv");
 const timeDisplay = document.querySelector("#time");
+const scoreText = document.querySelector("#score");
 
 // Select a random word from the array for wordToType
 
@@ -45,8 +46,8 @@ function displayWordToType() {
 function checkWord() {
   if (indexCharacter == wordsList[indexWordSelect].length) {
     score += 1;
+    console.log(score);
     wordsList.splice(indexWordSelect, 1);
-    console.log(wordsList);
     play();
   }
 }
@@ -70,6 +71,7 @@ function gameover() {
 }
 
 function starGame() {
+  scoreText.textContent = score;
   timeDisplay.innerHTML = time;
   play();
   intervalID = setInterval(() => {

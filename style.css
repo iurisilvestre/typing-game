@@ -17,7 +17,6 @@ body {
   background-color: #312483;
   width: 100%;
   color: var(--white);
-  overflow: hidden;
 }
 
 main {
@@ -33,12 +32,7 @@ main {
 
 #title {
   color: var(--azul);
-  margin: 30px auto;
   font-size: 50px;
-}
-
-h2 {
-  font-size: 20px;
 }
 
 p {
@@ -69,11 +63,17 @@ span {
 
 .time,
 .score {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: var(--lilaz);
   border-radius: 50%;
-  padding: 20px;
+  padding: 30px;
   margin: 20px;
   flex-direction: column;
+  font-size: 8px;
+}
+
+#time,
+#score {
+  font-size: 20px;
 }
