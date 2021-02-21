@@ -7,11 +7,22 @@
     <title>Typing Word</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <main>
-        <h1>Typing Game</h1>
-        <div id="wordToTypeDiv"></div>
-        <h2 id="time"></h2>
+<body class="flex">
+    <main class="flex">
+        <h1 id="title">Typing Game</h1>
+        <p>Write the word as fast as possible!</p>
+        <div id="wordToTypeDiv" class="flex"></div>
+        <div class="info flex">
+            <div class="time flex">
+                <h2>time</h2>
+                <h2 id="time"></h2>
+            </div>
+            <div class="score flex" >
+                <h2>score</h2>
+            </div>
+        </div>
+        
+ 
     </main>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

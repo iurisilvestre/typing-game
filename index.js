@@ -2,7 +2,7 @@
 let wordToType = "";
 let indexCharacter = 0;
 let indexWordSelect = 0;
-let time = 30;
+let time = 10;
 let intervalID;
 let score = 0;
 
@@ -14,11 +14,14 @@ const wordsList = [
   "health",
   "imagination",
   "love",
+  "god",
+  "medicine",
 ];
 
 // DOM Elements
-const $wordToTypeDiv = document.querySelector("#wordToTypeDiv");
-const $time = $("#time");
+const wordToTypeDiv = document.querySelector("#wordToTypeDiv");
+const timeDisplay = document.querySelector("#time");
+
 // Select a random word from the array for wordToType
 
 function getRandomWord(listOfWords) {
@@ -27,16 +30,15 @@ function getRandomWord(listOfWords) {
 }
 
 function play() {
-  $time.text(time);
   wordToType = getRandomWord(wordsList).split("");
   displayWordToType();
   indexCharacter = 0;
 }
 
 function displayWordToType() {
-  $wordToTypeDiv.innerHTML = "";
+  wordToTypeDiv.innerHTML = "";
   wordToType.forEach((char) => {
-    $wordToTypeDiv.innerHTML += `<span class="span-paint">${char}</span>`;
+    wordToTypeDiv.innerHTML += `<span class="span-paint">${char}</span>`;
   });
 }
 
@@ -68,7 +70,7 @@ function gameover() {
 }
 
 function starGame() {
-  $time.text(time);
+  timeDisplay.innerHTML = time;
   play();
   intervalID = setInterval(() => {
     time -= 1;
@@ -76,13 +78,14 @@ function starGame() {
     if (time < 1) {
       gameover();
     }
-    $time.text(time);
+    timeDisplay.innerHTML = time;
   }, 1000);
 }
 
 starGame();
 
-// Key event
+// Buttons
+
 document.addEventListener("keyup", function (event) {
   checkCharKey(event.key);
 });
